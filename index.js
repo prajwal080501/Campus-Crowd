@@ -5,7 +5,7 @@ import morgan from "morgan"
 import helmet from "helmet"
 import userRoute from "./routes/users.js"
 import authRoute from "./routes/auth.js"
-
+import postRoutes from "./routes/posts.js"
 dotenv.config();
 const app = express();
 
@@ -19,6 +19,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/users", userRoute)
 app.use("/api/auth", authRoute)
+app.use("/api/posts", postRoutes)
 
 const server = app.listen(process.env.PORT, () => {
     try {
