@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
-import Footer from "./components/Footer";
 import { useState } from "react";
 import Error from "./pages/Error";
 

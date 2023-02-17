@@ -1,9 +1,7 @@
 import React from 'react'
+import { AiFillCloseCircle } from 'react-icons/ai'
 import { HiMenuAlt3 } from 'react-icons/hi'
-import { AiFillBell, AiFillCloseCircle } from 'react-icons/ai'
-import Logo from './Logo'
 import { Link } from 'react-router-dom'
-import { FaUserAlt } from 'react-icons/fa'
 import Button from './Button'
 const Sidebar = ({ handleOpen, open }) => {
     return (
@@ -18,7 +16,7 @@ const Sidebar = ({ handleOpen, open }) => {
                 {/* close button icon */}
                 <div className="flex items-center justify-between p-4">
                     {/* <Logo/> */}
-                    <AiFillCloseCircle onClick={handleOpen} className="text-2xl cursor-pointer hover:text-black duration-200 hover:scale-105 ease-linear" onClick={handleOpen} />
+                    <AiFillCloseCircle onClick={handleOpen} className="text-2xl cursor-pointer hover:text-black duration-200 hover:scale-105 ease-linear"/>
                 </div>
                 <ul className="flex flex-col w-full space-y-2 px-3 py-5">
                     <li className="menu">

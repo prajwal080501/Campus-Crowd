@@ -9,7 +9,7 @@ const Navbar = ({ open, handleOpen }) => {
         <div className="sticky top-0 z-10 bg-white flex items-center shadow-sm w-screen justify-between h-fit px-6 py-3 space-x-5">
             {/* menu button icon */}
             <div className="flex items-center justify-center h-full">
-                <HiMenuAlt1 onClick={handleOpen} className="text-2xl hover:text-blue-500 font-bold cursor-pointer duration-200 hover:scale-105 ease-linear" onClick={handleOpen} />
+                <HiMenuAlt1 onClick={handleOpen} className="text-2xl hover:text-blue-500 font-bold cursor-pointer duration-200 hover:scale-105 ease-linear"/>
             </div>
 
             <div className='flex items-center'>
