@@ -13,6 +13,6 @@ router.put("/:id/like", likePost)
 // get a post
 router.get("/:id", getPost)
 // get timeline posts
-router.get("/timeline/all", getTimelinePosts)
+router.get("/timeline/all/:userId", getTimelinePosts)
 
 export default router;
