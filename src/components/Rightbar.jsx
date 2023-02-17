@@ -2,12 +2,13 @@ import React from 'react'
 import { Users } from '../dummydata'
 import User from './User'
 
-const Rightbar = () => {
+const Rightbar = ({sidebar, handleSidebar}) => {
   return (
     // rightbar component using tailwind css
-    <div className="lg:inline-flex overflow-y-auto flex-col w-[30%] sticky left-0 h-screen bg-white">
+    <div className={
+      sidebar ? "w-[100%] lg:w-[20%] h-[100vh] bg-white fixed top-0 right-0 z-10 transition-all duration-500 ease-in-out transform translate-x-0" : "w-[100%] lg:w-[20%] h-[100vh] bg-white fixed top-0 right-0 z-10 transition-all duration-500 ease-in-out transform translate-x-full"
+    }>
       {/* right bar with tailwindcss  */}
-      {/* notification pane */}
 
         <div className="w-full mt-5 p-3 flex items-center justify-center">
           <img src="https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&w=600"

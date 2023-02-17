@@ -6,14 +6,14 @@ import { HiMenuAlt1 } from 'react-icons/hi'
 import Button from './Button';
 const Navbar = ({ open, handleOpen }) => {
     return (
-        <div className="hidden sticky top-0 z-10 bg-white lg:inline-flex items-center shadow-sm w-screen justify-between h-fit px-6 py-3 space-x-5">
+        <div className="sticky top-0 z-10 bg-white flex items-center shadow-sm w-screen justify-between h-fit px-6 py-3 space-x-5">
             {/* menu button icon */}
             <div className="flex items-center justify-center h-full">
                 <HiMenuAlt1 onClick={handleOpen} className="text-2xl hover:text-blue-500 font-bold cursor-pointer duration-200 hover:scale-105 ease-linear" onClick={handleOpen} />
             </div>
 
             <div className='flex items-center'>
-                <Link to="/" className="text-3xl text-blue-500 font-bold">
+                <Link to="/" className="hidden lg:inline text-3xl text-blue-500 font-bold">
                     Campus<span className="text-black font-bold">Crowd</span>
                 </Link>
             </div>
@@ -23,11 +23,12 @@ const Navbar = ({ open, handleOpen }) => {
                     <AiOutlineSearch className="text-2xl cursor-pointer  hover:text-black duration-200 hover:scale-105 ease-linear text-gray-500" />
                 </div>
             </div>
-            <div className="flex space-x-5 items-center">
-                <Link to="/profile" className="flex items-center space-x-4">
+            <Link to="/profile" className="flex items-center space-x-4">
                     <AiFillBell className="text-2xl cursor-pointer hover:text-black duration-200 hover:scale-105 ease-linear text-gray-500" />
                     <FaUserAlt className="text-xl cursor-pointer hover:text-black duration-200 hover:scale-105 ease-linear text-gray-500" />
                 </Link>
+            <div className="hidden lg:inline-flex space-x-5 items-center">
+
                 <Link to="/login">
                     <Button>Login</Button>
                 </Link>

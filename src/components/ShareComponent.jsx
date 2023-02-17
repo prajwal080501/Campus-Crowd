@@ -3,21 +3,31 @@ import { GoFileMedia } from 'react-icons/go'
 import { AiFillFileText } from 'react-icons/ai'
 import { HiLocationMarker } from 'react-icons/hi'
 const ShareComponent = () => {
-    
+    // function to drop down the details pane when i start typing in the input field
+    const [details, setDetails] = React.useState(false)
+
+    // function to handle the details pane
+    const handleDetails = () => {
+        setDetails(!details)
+    }
     return (
-        <div className="w-[95%] sticky top-5 z-10 mx-auto bg-transparent px-2 py-3 rounded-xl drop-shadow-xl">
+        <div className="w-[95%] bg-white h-fit sticky top-5 z-10 mx-auto bg-transparent px-2 py-3 rounded-xl drop-shadow-2xl">
             {/* add a div with blur and low brightness */}
-            <div className="absolute top-0 left-0 w-full h-full bg-white rounded-lg z-[-1]"></div>
+            <div className="absolute top-0 left-0 w-full h-full rounded-lg z-[-1]"></div>
             <div>
                 <div className='flex space-x-4 items-center'>
                     <img src="https://via.placeholder.com/250" alt="profile" className="w-10 h-10 rounded-full" />
-                    <input type="text" placeholder="What's on your mind?" className="w-full bg-gray-100 ring-blue-400 focus:ring-2 duration-200 ease-out px-4 py-3 rounded-full outline-none" />
+                    <input type="text" placeholder="What's on your mind?" className="w-full bg-transparent outline-none text-lg font-medium" onClick={handleDetails} />
                 </div>
                 <hr className="my-3 bg-gray-400" />
-                <div>
+                <div className={
+                    details ? "flex flex-col lg:flex-row justify-between duration-200 ease-linear" : "hidden duration-200 ease-linear"
+                }
+                    open={details}
+                >
                     <div className='flex flex-col lg:flex-row justify-between'>
 
-                        <div className='flex flex-col lg:flex-row items-center space-y-3 lg:space-x-2'>
+                        <div className='flex flex-col lg:flex-row space-y-3 lg:space-x-2 lg:space-y-0'>
                             <div className="button">
                                 <GoFileMedia className="text-xl" />
                                 <span className='font-medium'>

@@ -1,7 +1,10 @@
 import React from 'react'
 import { HiMenuAlt3 } from 'react-icons/hi'
-import { AiFillCloseCircle } from 'react-icons/ai'
+import { AiFillBell, AiFillCloseCircle } from 'react-icons/ai'
 import Logo from './Logo'
+import { Link } from 'react-router-dom'
+import { FaUserAlt } from 'react-icons/fa'
+import Button from './Button'
 const Sidebar = ({ handleOpen, open }) => {
     return (
         // sidebar component using tailwind css
@@ -51,6 +54,15 @@ const Sidebar = ({ handleOpen, open }) => {
                         <HiMenuAlt3 className="text-2xl font-bold" />
                     </li>
                 </ul>
+                <div className="flex lg:hidden justify-center space-x-5 items-center">
+
+                <Link to="/login">
+                    <Button>Login</Button>
+                </Link>
+                <Link to="/register">
+                    <Button>Sign Up</Button>
+                </Link>
+            </div>
                 <hr className="border-gray-300" />
                 {/* name and image */}
                 <div className="flex flex-col w-full -space-y-4">
