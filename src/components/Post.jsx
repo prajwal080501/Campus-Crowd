@@ -6,7 +6,7 @@ import {FiShare} from 'react-icons/fi'
 const Post = ({post}) => {
     return (
         // post component using tailwind css
-        <div className="w-[95%] mx-auto px-3 mb-5 drop-shadow-xl py-2 bg-white rounded-lg">
+        <div className="w-[95%] mx-auto px-3 mb-5 drop-shadow-xl py-4 bg-white rounded-lg">
             {/* header */}
 
            <div className="flex justify-between items-center px-5">
@@ -21,11 +21,11 @@ const Post = ({post}) => {
                     </div>
             </div>
             {/* body */}
-            <div className="flex bg-white rounded-lg flex-col w-full  mx-auto px-3 py-5">
+            <div className="flex bg-white rounded-lg flex-col w-full  mx-auto px-1 py-3">
                 <p className="text-lg font-medium">{
                     post?.desc}
                 </p>
-                <img src={post.photo} alt="post" className="w-[100%] mx-auto h-96 object-cover rounded-lg mt-3" />
+                <img src={post.photo} alt="post" className="w-[100%] object-cover mx-auto h-96 rounded-lg mt-3" />
             </div>
             {/* footer */}
             <div className="flex items-center justify-between w-full px-3 py-2">

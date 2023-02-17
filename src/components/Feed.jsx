@@ -5,10 +5,11 @@ import ShareComponent from './ShareComponent'
 const Feed = () => {
   return (
     // feed
-    <div className="flex flex-col h-[100vh] bg-gray-100 overflow-y-auto mx-auto w-[100%]  lg:w-[80%]">
+    <div className="flex flex-col mt-5 mb-10 rounded-t-xl h-[100vh] bg-gray-100 overflow-y-auto mx-auto w-[100%]  lg:w-[80%]">
       {/* feed wrapper */}
       <div>
         <ShareComponent />
+        
         <FeedBox />
       </div>
     </div>

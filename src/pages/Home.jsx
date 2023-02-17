@@ -7,11 +7,11 @@ import Feed from './../components/Feed';
 const Home = ({ open, handleOpen, sidebar, handleSidebar }) => {
 
   return (
-    <div className="flex w-full bg-ray-100">
-      <Floatbutton sidebar={sidebar} handleSidebar={handleSidebar}/>
+    <div className="flex w-full bg-white">
+      <Floatbutton sidebar={sidebar} handleSidebar={handleSidebar} />
       <Sidebar handleOpen={handleOpen} open={open} />
-      <Feed/>
-      <Rightbar sidebar={sidebar} handleSidebar={handleSidebar}/>
+      <Feed />
+      <Rightbar sidebar={sidebar} handleSidebar={handleSidebar} />
     </div>
   )
 }

@@ -4,7 +4,7 @@ import Post from './Post'
 
 const FeedBox = () => {
   return (
-    <div className="flex flex-col space-y-4 w-full lg:w-[80%] mx-auto mt-10">
+    <div className="flex flex-col space-y-4 w-full lg:w-[80%] mx-auto mt-16">
       {/* feed wrapper */}
       {
         Posts.map((post) => (
