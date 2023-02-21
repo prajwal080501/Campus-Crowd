@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { GoFileMedia } from 'react-icons/go'
 import { AiFillFileText } from 'react-icons/ai'
 import { HiLocationMarker } from 'react-icons/hi'
+import { AuthContext } from '../context/authContext'
 const ShareComponent = () => {
+    const {user} = useContext(AuthContext);
+
     // function to drop down the details pane when i start typing in the input field
     const [details, setDetails] = React.useState(false)
     //   function to move div upwards when scrolled down
@@ -16,8 +19,10 @@ const ShareComponent = () => {
             {/* add a div with blur and low brightness */}
             <div>
                 <div className='flex space-x-4 items-center'>
-                    <img src="https://via.placeholder.com/250" alt="profile" className="w-10 h-10 rounded-full" />
-                    <input type="text" placeholder="What's on your mind?" className="w-full bg-gray-100 focus:ring-2 focus:ring-blue-500 duration-200 ease-linear p-3 rounded-lg outline-none text-lg font-medium" onClick={handleDetails} />
+                    <img src={user ? user.profilePicture : "https://via.placeholder.com/250"} alt="profile" className="w-16 h-16 rounded-full" />
+                    <input type="text" placeholder={
+                        user.username + ", what's on your mind?"
+                    } className="w-full bg-gray-100 focus:ring-2 focus:ring-blue-500 duration-200 ease-linear p-3 rounded-lg outline-none text-lg font-medium" onClick={handleDetails} />
                 </div>
                 <hr className="my-3 bg-gray-400" />
                 <div className={
