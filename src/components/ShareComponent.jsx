@@ -4,29 +4,20 @@ import { AiFillFileText } from 'react-icons/ai'
 import { HiLocationMarker } from 'react-icons/hi'
 const ShareComponent = () => {
     // function to drop down the details pane when i start typing in the input field
-    const [hide, setHide] = React.useState(false)
     const [details, setDetails] = React.useState(false)
-//   function to move div upwards when scrolled down
+    //   function to move div upwards when scrolled down
     const handleDetails = () => {
         setDetails(!details)
     }
-    const handleHide = () => {
-        window.scrollY > 100 ? setHide(true) : setHide(false)
-    }
 
-    React.useEffect(() => {
-        window.addEventListener('scroll', handleHide)
-        return () => {
-            window.removeEventListener('scroll', handleHide)
-        }
-    }, [])
     return (
-        <div className= "w-[95%] h-fit backdrop-blur-lg backdrop-brightness-90 bg-gradient-to-br from-white/10 to-blue-500/10 sticky top-5 z-10 mx-auto bg-transparent px-2 py-3 rounded-xl drop-shadow-2xl">
+        <div className={"w-[95%] h-fit bg-white  sticky top-5 z-10 mx-auto bg-transparent px-2 py-3 rounded-xl drop-shadow-2xl"
+        }>
             {/* add a div with blur and low brightness */}
             <div>
                 <div className='flex space-x-4 items-center'>
                     <img src="https://via.placeholder.com/250" alt="profile" className="w-10 h-10 rounded-full" />
-                    <input type="text" placeholder="What's on your mind?" className="w-full bg-transparent outline-none text-lg font-medium" onClick={handleDetails} />
+                    <input type="text" placeholder="What's on your mind?" className="w-full bg-gray-100 focus:ring-2 focus:ring-blue-500 duration-200 ease-linear p-3 rounded-lg outline-none text-lg font-medium" onClick={handleDetails} />
                 </div>
                 <hr className="my-3 bg-gray-400" />
                 <div className={

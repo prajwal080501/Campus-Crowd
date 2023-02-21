@@ -2,16 +2,19 @@ import React from 'react'
 import FeedBox from './FeedBox'
 import ShareComponent from './ShareComponent'
 
-const Feed = () => {
+const Feed = ({username}) => {
   return (
     // feed
-    <div className="flex flex-col mt-5 mb-10 rounded-t-xl h-[100vh] bg-gray-100 overflow-y-auto mx-auto w-[100%]  lg:w-[80%]">
+    <div className=' w-[100%]  lg:w-[80%] bg-gray-100 p-5 mx-auto'>
+      <div className="sticky top-20 z-10">
+        <ShareComponent />
+      </div>
+    <div className="flex flex-col mt-5 mb-10 rounded-t-xl h-[] overflow-y-scroll mx-auto ">
       {/* feed wrapper */}
       <div>
-        <ShareComponent />
-        
-        <FeedBox />
+        <FeedBox username={username} />
       </div>
+    </div>
     </div>
   )
 }

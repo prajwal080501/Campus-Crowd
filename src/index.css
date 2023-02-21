@@ -26,4 +26,7 @@ html {
   .button {
     @apply flex space-x-2 items-center p-3 bg-gray-100 w-fit rounded-lg shadow-sm hover:bg-blue-400 hover:text-white duration-200 ease-linear cursor-pointer active:scale-95
   }
+  .skill{
+    @apply bg-gray-200 text-gray-800 font-medium py-1 px-4 rounded-full m-1 hover:scale-110 duration-200 ease-linear cursor-pointer;
+  }
 }

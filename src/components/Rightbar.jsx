@@ -6,7 +6,7 @@ const Rightbar = ({sidebar, handleSidebar}) => {
   return (
     // rightbar component using tailwind css
     <div className={
-      sidebar ? "w-[100%] lg:w-[20%] h-[100vh] bg-white fixed top-0 right-0 z-10 transition-all duration-500 ease-in-out transform translate-x-0" : "w-[100%] lg:w-[20%] h-[100vh] bg-white fixed top-0 right-0 z-10 transition-all duration-500 ease-in-out transform translate-x-full"
+      sidebar ? "w-[100%] lg:w-[20%] h-[100vh] bg-white fixed top-0 right-0 z-20 transition-all duration-500 ease-in-out transform translate-x-0" : "w-[100%] lg:w-[20%] h-[100vh] bg-white fixed top-0 right-0 z-20 transition-all duration-500 ease-in-out transform translate-x-full"
     }>
       {/* right bar with tailwindcss  */}
 
