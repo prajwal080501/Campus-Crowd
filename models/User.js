@@ -40,6 +40,7 @@ const UserSchema = new mongoose.Schema({
     desc: {
         type: String,
         max: 50,
+        default:"I think i'm funny 🙂",
     },
     city: {
         type: String,

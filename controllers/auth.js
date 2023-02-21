@@ -29,19 +29,23 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
     try {
         const user = await User.findOne({ email });
-        !user && res.status(400).json({
-            "status": "error",
-            "code": 404,
-            "message": "User does not exist",
-            "data": "null"
-        })
+        if (!user) {
+            res.status(404).json({
+                "status": "error",
+                "code": 404,
+                "message": "User not found",
+                "data": "null"
+            })
+        }
         const validPassword = await bcrypt.compare(password, user.password);
-        !validPassword && res.status(400).json({
-            "status": "error",
-            "code": 401,
-            "message": "Wrong password",
-            "data": "null"
-        })
+        if (!validPassword) {
+            res.status(400).json({
+                "status": "error",
+                "code": 400,
+                "message": "Invalid password",
+                "data": "null"
+            })
+        }
         res.status(200).json(user);
     }
     catch (error) {
