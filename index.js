@@ -13,13 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(morgan("common"));
 app.use(helmet());
-app.use(cors({
-    origin: [
-        "http://localhost:3000",
-        "https://campuscrowd.vercel.app/"
-    ]
-}
-))
+app.use(cors());
 
 app.get("/", (req, res) => {
     res.send("Hello World");
