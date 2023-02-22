@@ -7,7 +7,7 @@ const FeedBox = ({username}) => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = username? await axios.get("http://localhost:8000/api/posts/profile/" + username) : await axios.get("http://localhost:8000/api/posts/timeline/all/63ea306ab9bbd5fb7fca73e3");
+      const res = username? await axios.get("https://student-network-web-app.onrender.com/api/posts/profile/" + username) : await axios.get("http://localhost:8000/api/posts/timeline/all/63ea306ab9bbd5fb7fca73e3");
       console.log(res);
       setPosts(res.data);
     }

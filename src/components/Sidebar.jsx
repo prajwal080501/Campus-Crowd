@@ -24,9 +24,9 @@ const Sidebar = ({ handleOpen, open }) => {
                     <div>
                         {
                             user ? (
-                                <Link to={`/profile/${user.username}`} className="flex space-x-3 w-full justify-between">
-                                    <p className="text-lg bg-blue-500 p-2 text-white rounded-lg shadow-sm font-bold">{user.username}</p>
+                                <Link to={`/profile/${user.username}`} className="flex space-x-3 w-full items-center justify-between">
                                     <img src={user.profilePicture} alt="" className="w-10 h-10 rounded-full object-cover" />
+                                    <p className="font-medium text-lg">Welcome <span className='font-bold text-gray-500'>@{user.username}</span></p>
                                 </Link>
                             ) :
                                 (

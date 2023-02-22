@@ -9,7 +9,7 @@ const Profile = () => {
   const username = useParams().username;
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`http://localhost:8000/api/users?username=${username}`);
+      const res = await axios.get(`https://student-network-web-app.onrender.com/api/users?username=${username}`);
       console.log(res);
       setUser(res.data);
     }
