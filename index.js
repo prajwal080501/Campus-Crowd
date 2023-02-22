@@ -13,7 +13,6 @@ const app = express();
 app.use(express.json());
 app.use(morgan("common"));
 app.use(helmet());
-// cors 
 app.use(cors({
     origin: [
         "http://localhost:3000",
@@ -21,7 +20,6 @@ app.use(cors({
     ]
 }
 ))
-
 
 app.get("/", (req, res) => {
     res.send("Hello World");

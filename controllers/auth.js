@@ -46,6 +46,7 @@ export const login = async (req, res) => {
                 "data": "null"
             })
         }
+        res.header('Access-Control-Allow-Origin', 'https://campuscrowd.vercel.app');
         res.status(200).json(user);
     }
     catch (error) {
