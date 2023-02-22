@@ -3,6 +3,7 @@ import { GoFileMedia } from 'react-icons/go'
 import { AiFillFileText } from 'react-icons/ai'
 import { HiLocationMarker } from 'react-icons/hi'
 import { AuthContext } from '../context/authContext'
+import {motion} from "framer-motion";
 const ShareComponent = () => {
     const {user} = useContext(AuthContext);
 
@@ -14,7 +15,11 @@ const ShareComponent = () => {
     }
 
     return (
-        <div className={"w-[95%] h-fit bg-white  sticky top-5 z-10 mx-auto bg-transparent px-2 py-3 rounded-xl drop-shadow-2xl"
+        <motion.div 
+        initial={{y: -100}}
+        animate={{y: 0}}
+        transition={{duration:1}}
+        className={"w-[95%] h-fit bg-white  sticky top-5 z-10 mx-auto bg-transparent px-2 py-3 rounded-xl drop-shadow-2xl"
         }>
             {/* add a div with blur and low brightness */}
             <div>
@@ -58,7 +63,7 @@ const ShareComponent = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

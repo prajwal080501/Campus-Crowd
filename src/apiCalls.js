@@ -5,7 +5,7 @@ export const LoginCall = async (userCredentials, dispatch) => {
         type: "LOGIN_START",
     });
     try {
-        const response = await axios.post("http://localhost:8000/api/auth/login", userCredentials);
+        const response = await axios.post("https://student-network-web-app.onrender.com/api/auth/login", userCredentials);
         dispatch({
             type: "LOGIN_SUCCESS",
             payload: response.data,

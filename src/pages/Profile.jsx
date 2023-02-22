@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { AiFillGithub, AiOutlineInstagram, AiOutlineLinkedin, AiOutlineTwitter } from "react-icons/ai";
 import Feed from "../components/Feed";
+import {motion} from "framer-motion";
 import { useParams } from "react-router";
 const Profile = () => {
   const [user, setUser] = useState({})
@@ -18,8 +19,16 @@ const Profile = () => {
     <div className="flex flex-col lg:flex-row">
       <Feed username="prajwalladkat" />
       {/* Profile Info */}
-      <div className="flex lg:sticky overflow-y-scroll lg:top-20 h-screen  flex-col items-center bg-white text-black lg:w-[60%] py-4 space-y-0 lg:space-y-3">
-        <div className="h-48 mb-5 w-48 mx-auto rounded-full border-4 border-fuchsia-500 overflow-hidden drop-shadow-lg">
+      <motion.div 
+        initial={{x:100, opacity:0}}
+        animate={{x:0, opacity:1}}
+        transition={{duration:1}}
+      className="flex lg:sticky overflow-y-scroll lg:top-20 h-screen  flex-col items-center bg-white text-black lg:w-[60%] py-4 space-y-0 lg:space-y-3">
+        <div 
+        initial={{y: -100}}
+        animate={{y: 0, rotate: 360}}
+        transition={{duration:1}}
+        className="h-48 mb-5 w-48 mx-auto rounded-full border-4 border-fuchsia-500 overflow-hidden drop-shadow-lg">
           <img src={user.profilePicture} alt="Profile" className="h-48 w-48 object-contain" />
         </div>
         <h1 className="text-3xl mt-5 font-bold"><span className="text-gray-400">@</span>{user.username}</h1>
@@ -69,7 +78,7 @@ const Profile = () => {
               ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
 import Feed from './../components/Feed';
-
+import { motion } from "framer-motion"
 const Home = ({ open, handleOpen, sidebar, handleSidebar }) => {
 
   return (
-    <div className="flex w-full bg-white">
+    <motion.div 
+      initial={{x: 0}}
+      animate={{x: sidebar ? 300 : 0}}
+      transition={{duration: 0.3}}
+    className="flex w-full bg-white">
       <Feed />
-    </div>
+    </motion.div>
   )
 }
 

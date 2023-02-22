@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AiFillBell, AiOutlineSearch } from 'react-icons/ai'
-import { FaUserAlt } from 'react-icons/fa'
+import { FiLogOut } from 'react-icons/fi'
 import { HiMenuAlt1 } from 'react-icons/hi'
 import Button from './Button';
 import { AuthContext } from '../context/authContext'
 const Navbar = ({ open, handleOpen }) => {
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
 
     return (
         <div className="sticky top-0 z-20 bg-white flex items-center shadow-sm w-screen justify-between h-fit px-6 py-3 space-x-5">
@@ -30,14 +30,18 @@ const Navbar = ({ open, handleOpen }) => {
                 `/profile/${user?.username}`
             } className="flex items-center space-x-4">
                 <AiFillBell className="text-2xl cursor-pointer hover:text-black duration-200 hover:scale-105 ease-linear text-gray-500" />
-                <FaUserAlt className="text-xl cursor-pointer hover:text-black duration-200 hover:scale-105 ease-linear text-gray-500" />
             </Link>
             <div className="hidden lg:inline-flex space-x-5 items-center">
-               {
-                     user ? (
+                {
+                    user ? (
                         <>
-                        <p className="text-lg bg-blue-500 p-2 text-white rounded-lg shadow-sm font-bold">{user.username}</p>
-                        <img src={user.profilePicture} alt="" className="w-10 h-10 rounded-full object-cover" />
+                        <Link to={`/profile/${user.username}`} className="flex space-x-3">
+                            <p className="text-lg bg-blue-500 p-2 text-white rounded-lg shadow-sm font-bold">{user.username}</p>
+                            <img src={user.profilePicture} alt="" className="w-10 h-10 rounded-full object-cover" />
+                        </Link>
+                        <Link to="/login">
+                            <FiLogOut className="text-2xl cursor-pointer hover:text-black duration-200 hover:scale-105 ease-linear text-gray-500" />
+                        </Link>
                         </>
                     ) : (
                         <>
@@ -50,7 +54,7 @@ const Navbar = ({ open, handleOpen }) => {
                         </>
                     )
 
-               }
+                }
             </div>
         </div>
     )
