@@ -15,7 +15,10 @@ app.use(morgan("common"));
 app.use(helmet());
 // cors 
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: [
+        "http://localhost:3000",
+        "https://campuscrowd.vercel.app/"
+    ]
 }
 ))
 
