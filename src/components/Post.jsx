@@ -11,7 +11,7 @@ const Post = ({ post, username }) => {
 
     useEffect(() => {
         const fetchUser = async () => {
-            const res = await axios.get(`http://localhost:8000/api/users?userId=${post.userId}`)
+            const res = await axios.get(`https://student-network-web-app.onrender.com/api/users?userId=${post.userId}`)
             console.log(res);
             setUser(res.data);
         }
