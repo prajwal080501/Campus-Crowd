@@ -7,13 +7,35 @@ import userRoute from "./routes/users.js"
 import authRoute from "./routes/auth.js"
 import postRoutes from "./routes/posts.js"
 import cors from "cors"
+import multer from "multer"
 dotenv.config();
 const app = express();
+
+app.use("/images", express.static("public/images"));
 
 app.use(express.json());
 app.use(morgan("common"));
 app.use(helmet());
 app.use(cors());
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "public/images");
+    },
+    filename: (req, file, cb) => {
+        cb(null, req.body.name);
+    }
+})
+
+const upload = multer({storage});
+app.post("/api/upload", upload.single("file"), (req, res) => {
+    try {
+        return res.status(200).json("File uploaded successfully");
+    } catch (error) {
+        console.log(error);
+    }
+})
+
 
 app.get("/", (req, res) => {
     res.send("Hello World");
