@@ -6,7 +6,7 @@ export const LoginCall = async (userCredentials, dispatch) => {
     });
     try {
         // set cors 
-        const response = await axios.post("https://student-network-web-app.onrender.com/api/auth/login", userCredentials);
+        const response = await axios.post("/api/auth/login", userCredentials);
         dispatch({
             type: "LOGIN_SUCCESS",
             payload: response.data,

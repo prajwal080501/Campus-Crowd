@@ -9,7 +9,7 @@ const Profile = () => {
   const username = useParams().username;
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`https://student-network-web-app.onrender.com/api/users?username=${username}`);
+      const res = await axios.get(`/api/users?username=${username}`);
       console.log(res);
       setUser(res.data);
     }
@@ -17,7 +17,7 @@ const Profile = () => {
   }, [username])
   return (
     <div className="flex flex-col lg:flex-row">
-      <Feed username={username} />
+
       {/* Profile Info */}
       <motion.div
         initial={{ x: 100, opacity: 0 }}
@@ -29,16 +29,16 @@ const Profile = () => {
           animate={{ y: 0, rotate: 360 }}
           transition={{ duration: 1 }}
           className="h-48 mb-5 w-48 mx-auto rounded-full border-4 border-fuchsia-500 overflow-hidden drop-shadow-lg">
-          <img src={user.profilePicture} alt="Profile" className="h-48 w-48 object-contain" />
+          <img src={user.profilePicture ? user.profilePicture : "https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg"} alt="Profile" className="h-48 w-48 object-contain" />
         </div>
         <h1 className="text-3xl mt-5 font-bold"><span className="text-gray-400">@</span>{user.username}</h1>
         {/* degree and college name */}
         <div className="flex flex-col justify-center lg:flex-row items-center bg-white p-3 space-x-2">
           <span className="text-lg text-gray-400 font-medium">{user.degree}</span>
-          <span className="text-lg font-medium">from</span>
+
           <span className="text-lg text-blue-500 font-bold">{user.collegeName}</span>
           {/* passing year */}
-          <span className="text-lg text-gray-400 font-medium">({user.passingYear})</span>
+          {user.passingYear &&  <span className="text-lg text-gray-400 font-medium">({user.passingYear})</span>}
         </div>
         <div className="mt-4 flex items-center space-x-4 e-full justify-between">
           <span className="text-lg text-gray-400 font-medium">0 followers</span>
@@ -70,6 +70,9 @@ const Profile = () => {
         {/* Hobbies and Skills */}
         <div>
           <p className="text-2xl text-center font-bold mt-5">Skills</p>
+          {
+            user.skills?.length === 0 && <p className="text-xl text-center font-medium mt-6">🥺No skills added</p>
+          }
           <div className="mt-6 flex flex-wrap justify-center">
 
             {
@@ -79,6 +82,7 @@ const Profile = () => {
           </div>
         </div>
       </motion.div>
+      <Feed username={username} />
     </div>
   );
 };

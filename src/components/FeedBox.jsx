@@ -1,21 +1,25 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { AuthContext } from '../context/authContext';
 import Post from './Post'
 
 const FeedBox = ({username}) => {
   const [posts, setPosts] = useState([]);
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = username? await axios.get("https://student-network-web-app.onrender.com/api/posts/profile/" + username) : await axios.get("https://student-network-web-app.onrender.com/api/posts/timeline/all/63ea306ab9bbd5fb7fca73e3");
-      console.log(res);
-      setPosts(res.data);
+      const res = username? await axios.get("/api/posts/profile/" + username) : await axios.get("/api/posts/timeline/all/"+ user._id);
+      setPosts(res.data.sort((p1, p2) => {
+        return new Date(p2.createdAt) - new Date(p1.createdAt);
+      }
+        ));
     }
     fetchPosts();
-  }, [])
+  }, [username, user._id])
   console.log(posts);
   return (
-    <div className="flex flex-col space-y-4 w-full lg:w-[80%] mb-10 sticky top-10 mx-auto mt-10">
+    <div className="flex flex-col space-y-4 w-[100%] lg:w-[80%] mb-10 sticky top-10 mx-auto mt-10">
       {/* feed wrapper */}
       {
         posts.map((post) => (

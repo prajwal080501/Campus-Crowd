@@ -35,13 +35,13 @@ const Navbar = ({ open, handleOpen }) => {
                 {
                     user ? (
                         <>
-                        <Link to={`/profile/${user.username}`} className="flex space-x-3">
-                            <p className="text-lg bg-blue-500 p-2 text-white rounded-lg shadow-sm font-bold">{user.username}</p>
-                            <img src={user.profilePicture} alt="" className="w-10 h-10 rounded-full object-cover" />
-                        </Link>
-                        <Link to="/login">
-                            <FiLogOut className="text-2xl cursor-pointer hover:text-black duration-200 hover:scale-105 ease-linear text-gray-500" />
-                        </Link>
+                            <Link to={`/profile/${user.username}`} className="flex space-x-3">
+                                <p className="text-lg bg-blue-500 p-2 text-white rounded-lg shadow-sm font-bold">{user.username}</p>
+                                <img src={user.profilePicture ? user.profilePicture : "https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg"} alt="" className="w-10 h-10 rounded-full object-cover" />
+                            </Link>
+                            <Link to="/login">
+                                <FiLogOut className="text-2xl cursor-pointer hover:text-black duration-200 hover:scale-105 ease-linear text-gray-500" />
+                            </Link>
                         </>
                     ) : (
                         <>
