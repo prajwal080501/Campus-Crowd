@@ -56,7 +56,7 @@ const Navbar = () => {
             },
           }}
         >
-          Campus Crowd
+          Sociopedia
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween

@@ -16,7 +16,7 @@ import { createPost } from "./controllers/posts.js";
 import { verifyToken } from "./middleware/auth.js";
 import User from "./models/User.js";
 import Post from "./models/Post.js";
-
+import { users, posts } from "./data/index.js";
 
 /* CONFIGURATIONS */
 const __filename = fileURLToPath(import.meta.url);
@@ -60,10 +60,9 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Server running on port: ${PORT}`);
-      console.log(`Database connected`);
-    });
+    app.listen(PORT, () => console.log(`Server Port: ${PORT}`) 
+    console.log("Connected to MongoDB");
+    );
 
     /* ADD DATA ONE TIME */
     // User.insertMany(users);
